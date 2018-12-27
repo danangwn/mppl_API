@@ -205,7 +205,7 @@ router.patch('/edit/:barangid', (req, res, next) => {
 
 router.post('/delete/:barangId', (req, res, next) => {
     const id = req.params.barangId;
-    Barang.update({ _id: id }, { $set: {status : "0"} })
+    Barang.remove({ _id: id })
         .exec()
         .then(result => {
             res.status(200).json({
